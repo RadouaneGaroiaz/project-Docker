@@ -26,6 +26,9 @@ jobs:
           sudo apt-get install -y nodejs
           sudo apt-get install -y npm
           npm install
+          
+      - name: Build the app
+        run: npm run build   
 
       - name: Run tests
         run: npm test
