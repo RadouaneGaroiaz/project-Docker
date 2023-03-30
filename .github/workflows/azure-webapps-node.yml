@@ -1,24 +1,26 @@
 name: CI
+
 on:
   push:
-    branches:
-      - main
+    branches: [ master ]
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-      
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y nodejs
-          sudo apt-get install -y npm
-          npm install
-      
-      - name: Build the app
-        run: npm run build
-      
-      - name: Run tests
-        run: npm run test
+    - uses: actions/checkout@v2
+
+    - name: Node.js ${{ matrix.node_version }} Setup
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node_version }}
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build App
+      run: npm run build
+
+    - name: Run Tests
+      run: npm run test
