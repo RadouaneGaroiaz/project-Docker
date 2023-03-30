@@ -38,4 +38,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/nodejs-app:${{ github.sha }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/dockerproject:${{ github.sha }}
