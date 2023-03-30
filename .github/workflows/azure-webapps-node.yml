@@ -3,24 +3,23 @@ on:
   push:
     branches:
       - main
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Node.js ${{ matrix.node_version }} Setup
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node_version }}
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Build App
-      run: npm run build
-
-    - name: Run Tests
-      run: npm run test
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      
+      - name: Setup Node 18.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.x
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Build the app
+        run: npm run build
+      
+      - name: Run tests
+        run: npm run test
