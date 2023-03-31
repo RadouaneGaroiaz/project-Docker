@@ -1,0 +1,9 @@
+CREATE TABLE form_data (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  discordId VARCHAR(50) NOT NULL,
+  story TEXT NOT NULL,
+  PRIMARY KEY (id)
+);
