@@ -7,6 +7,7 @@ WORKDIR /app
 # Copy the package.json and package-lock.json files
 COPY package*.json ./
 
+RUN npm config set legacy-peer-deps true
 # Install the dependencies
 RUN npm install
 
