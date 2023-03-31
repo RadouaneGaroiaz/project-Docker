@@ -1,14 +1,7 @@
 import { useState } from "react";
-import mysql from "mysql2/promise";
 
 function useForm(props) {
-
-  const PORT = 3000;
-  const DB_HOST = process.env.DB_HOST;
-  const DB_PORT = process.env.DB_PORT;
-  const DB_USER = process.env.DB_USER;
-  const DB_PASSWORD = process.env.DB_PASSWORD;
-  const DB_NAME = process.env.DB_NAME;
+  const mongoose = require('mongoose');
 
   const [formData, setFormData] = useState(props);
 
@@ -40,36 +33,28 @@ function useForm(props) {
     setFormData(props);
   };
 
+  const formSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    lastname: { type: String, required: true },
+    email: { type: String, required: true },
+    discordId: { type: String, required: true },
+    story: { type: String, required: true },
+  });
+  
+  const Form = mongoose.model('Form', formSchema);
+  
   const submitForm = async () => {
     try {
-      // create a connection to the MySQL database
-      const connection = await mysql.createConnection({
-        host: DB_HOST,
-        port: DB_PORT,
-        user: DB_USER,
-        password: DB_PASSWORD,
-        database: DB_NAME,
-      });
-
-      // insert the form data into a table
-      const [rows, fields] = await connection.execute(
-        "INSERT INTO form_data (name, lastname, email, discordId, story) VALUES (?, ?, ?, ?, ?)",
-        [
-          formData.data.name,
-          formData.data.lastname,
-          formData.data.email,
-          formData.data.discordId,
-          formData.data.story,
-        ]
-      );
-
-      console.log(rows);
-      console.log(fields);
-
-      // close the connection to the MySQL database
-      await connection.end();
-    } catch (error) {
-      console.error(error);
+      await mongoose.connect('mongodb://localhost:27017/xultimate', { useNewUrlParser: true });
+  
+      const form = new Form(formData.data);
+      const result = await form.save();
+  
+      console.log(`Inserted ${result.insertedCount} documents into the collection`);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      await mongoose.connection.close();
     }
   };
 

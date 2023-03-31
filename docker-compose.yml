@@ -2,16 +2,16 @@ version: "3.9"
 
 services:
   db:
-    image: mysql:latest
-    container_name: mysqldb
+    image: mongo
+    container_name: mongodb
     environment:
-      MYSQL_ROOT_PASSWORD: adminPass123
-      MYSQL_DATABASE: xultimate
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: xultimate
     volumes:
-      - ./mysql:/docker-entrypoint-initdb.d/
-      - ./mysql/data:/var/lib/mysql
+      - ./mongodb/data:/data/db
     ports:
-      - "3306:3306"
+      - "27017:27017"
 
   app:
     build: .
@@ -20,9 +20,9 @@ services:
       - db
     environment:
       DB_HOST: db
-      DB_PORT: 3306
+      DB_PORT: 27017
       DB_USER: root
-      DB_PASSWORD: adminPass123
+      DB_PASSWORD: example
       DB_NAME: xultimate
     ports:
       - "3000:3000"
