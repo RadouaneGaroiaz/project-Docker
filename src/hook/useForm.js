@@ -1,7 +1,7 @@
 import { useState } from "react";
+import * as mongoose from 'mongoose';
 
 function useForm(props) {
-  const mongoose = require('mongoose');
 
   const [formData, setFormData] = useState(props);
 
@@ -63,6 +63,7 @@ function useForm(props) {
     setDynamicFormData,
     clearForm,
     isValid,
+    submitForm
   };
 }
 
