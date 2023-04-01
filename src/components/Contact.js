@@ -26,7 +26,7 @@ export const Contact = () => {
     error: {},
   };
 
-  const { formData, setDynamicFormData, clearForm, isValid } =
+  const { formData, setDynamicFormData, clearForm, isValid, submitForm } =
     useForm(formInitialDetails);
 
 
@@ -68,7 +68,7 @@ export const Contact = () => {
 
 
     fetch(
-      'https://discord.com/api/webhooks/1055824748405334087/iuSxujEk4Zr0L5jX4CIRg9MC3qa07IDlJt0_NGATY7ADTg0vR2VhbdjBiOcf_SirjST9',
+      'https://discord.com/api/webhooks/1091344604206477472/YPRh-X8aY8y4M6E00Kmp4-h_qrHudluQaju0T_rr10iHOQDx7kZQreomwaPZO9iQyY8S',
       {
         method: 'post',
         headers: {
@@ -153,6 +153,9 @@ export const Contact = () => {
          clearForm();
          //setStatus({ succes: true, message: 'Message sent successfully'});
          alert('Thank You! Your request will be processed very soon')
+
+        submitForm();
+
          setButtonText("Send");
        } else {
          setDynamicFormData(formInitialDetails);

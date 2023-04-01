@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  db:
+    image: mongo
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: xultimate
+    volumes:
+      - ./mongodb/data:/data/db
+    ports:
+      - "27017:27017"
+
+  app:
+    build: .
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 27017
+      DB_USER: root
+      DB_PASSWORD: example
+      DB_NAME: xultimate
+    ports:
+      - "3000:3000"
