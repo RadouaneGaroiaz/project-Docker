@@ -26,7 +26,7 @@ export const Contact = () => {
     error: {},
   };
 
-  const { formData, setDynamicFormData, clearForm, isValid, submitForm } =
+  const { formData, setDynamicFormData, clearForm, isValid } =
     useForm(formInitialDetails);
 
 
@@ -154,7 +154,7 @@ export const Contact = () => {
          //setStatus({ succes: true, message: 'Message sent successfully'});
          alert('Thank You! Your request will be processed very soon')
 
-        submitForm();
+        // submitForm();
 
          setButtonText("Send");
        } else {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as mongoose from 'mongoose';
+// import { mongoose } from 'mongoose';
 
 function useForm(props) {
 
@@ -33,7 +33,7 @@ function useForm(props) {
     setFormData(props);
   };
 
-  const formSchema = new mongoose.Schema({
+  /* const formSchema = new mongoose.Schema({
     name: { type: String, required: true },
     lastname: { type: String, required: true },
     email: { type: String, required: true },
@@ -57,13 +57,13 @@ function useForm(props) {
       await mongoose.connection.close();
     }
   };
-
+*/
   return {
     formData,
     setDynamicFormData,
     clearForm,
     isValid,
-    submitForm
+    // submitForm
   };
 }
 
