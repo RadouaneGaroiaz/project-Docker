@@ -22,7 +22,7 @@ jobs:
         
     - name: Build Docker image
       run: |
-        docker-compose up --build
+        docker-compose build
         docker tag dockerproject_app $IMAGE_NAME:$IMAGE_TAG
     
     - name: Login to Docker Hub
