@@ -6,7 +6,7 @@ on:
       - main
 env:
   DOCKER_COMPOSE_VERSION: 2.2.1
-  IMAGE_NAME: dudu49/dockerproject
+  IMAGE_NAME: dudu49/dockerproject_app
   IMAGE_TAG: latest    
 
 jobs:
