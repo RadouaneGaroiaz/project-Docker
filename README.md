@@ -1,15 +1,15 @@
 Amine Alami | Radouane Garoiaz devops project
 Partie 1 - construction manuelle de l'image
-> docker build -t projectdocker .
-> docker run projectdocker:latest
+ docker build -t projectdocker .
+ docker run projectdocker:latest
 you can find the image on docker hub at :
-> docker hub : dudu49/dockerproject
+docker hub : dudu49/dockerproject
 
 Part 2 - Construction de l'image dans une CI
 Ckeck azure-webapps-node.yml on workflow
 
 Part 3 - docker-compose
-> run docker compose up -d
+ run docker compose up -d
 
 Part 4 et 5 
 
