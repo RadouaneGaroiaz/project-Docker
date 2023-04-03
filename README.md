@@ -5,8 +5,8 @@ Partie 1 - construction manuelle de l'image
 you can find the image on docker hub at :
 docker hub : dudu49/dockerproject
 
-Part 2 - Construction de l'image dans une CI
-Ckeck azure-webapps-node.yml on workflow
+Part 2 - Construction de l'image dans une CI:
+ Ckeck azure-webapps-node.yml on workflow
 
 Part 3 - docker-compose
  run docker compose up -d
