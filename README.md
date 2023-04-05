@@ -45,3 +45,6 @@ ansible-playbook install-docker.yml
 ## VM deployed with terraform
 
 ![Screenshot_3](https://user-images.githubusercontent.com/39490675/229461579-e3dc2017-8a7a-4c1b-84b1-253d2754b916.png)
+
+## React APP deployed on azure cloud 
+ [App link](http://20.234.115.156:3000/)
